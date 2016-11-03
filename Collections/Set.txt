@@ -1,0 +1,31 @@
+class TreeSet<E> extends AbstractSet<E> implements NavigableSet<E>, Cloneable, java.io.Serializable
+class TreeMap<E>.KeySet<E>
+class LinkedHashSet<E> extends HashSet<E> implements Set<E>, Cloneable, java.io.Serializable
+class HashSet<E> extends AbstractSet<E>implements Set<E>, Cloneable, java.io.Serializable
+class ConcurrentSkipListSet<E> extends AbstractSet<E> implements NavigableSet<E>, Cloneable, java.io.Serializable
+class ConcurrentSkipListMap<E>.KeySet<E>
+
+interface NavigableSet<E> extends SortedSet<E>
+	E lower(E e);//меньше e
+	E floor(E e);//меньше или равно e
+	E ceiling(E e);//больше или равно e
+	E higher(E e);//больше e
+	E pollFirst();
+	E pollLast();
+	NavigableSet<E> descendingSet();
+	Iterator<E> descendingIterator();
+	NavigableSet<E> subSet(E fromElement, boolean fromInclusive, E toElement,   boolean toInclusive);
+	NavigableSet<E> headSet(E toElement, boolean inclusive);
+	NavigableSet<E> tailSet(E fromElement, boolean inclusive);
+
+
+interface SortedSet<E> extends Set<E>
+	Comparator<? super E> comparator();
+	SortedSet<E> subSet(E fromElement, E toElement);
+	SortedSet<E> headSet(E toElement);
+	SortedSet<E> tailSet(E fromElement);
+	E first();
+	E last();
+
+
+interface Set<E> extends Collection<E>

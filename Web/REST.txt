@@ -1,0 +1,19 @@
+REST (Representational state transfer)
+
+Ресурсы представлены как папки
+Представление поставляет JSON (JavaScript Object notation) либо XML
+Сообщения явно используют методы HTTP (GET, POST, PUT, DELETE)
+Stateless не сохраняется контекст пользователя между запросами
+
+GET	   -	READ
+POST   -	CREATE, UPDATE
+PUT	   - 	CREATE, UPDATE	IDEMPOTENT 
+							(несколько запросов производят тот же эффект, как и один)
+PATCH  -	UPDATE field	IDEMPOTENT 
+DELETE -	REMOVE
+
+1XX - informational
+2XX - success
+3XX - redirection
+4XX - client error
+5XX - server error

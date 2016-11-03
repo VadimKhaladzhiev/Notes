@@ -1,0 +1,27 @@
+interface Collection<E> extends Iterable<E>
+	int size();//размер
+	boolean isEmpty();//незаполненна€
+
+	Object[] toArray();//в виде массива Object
+	<T> T[] toArray(T[] a);//в виде массива экземпл€ров класса
+
+	boolean add(E e);//добавить элемент
+	boolean addAll(Collection<? extends E> c);//добавить элементы коллекции
+
+	boolean contains(Object o);//содержит объект
+	boolean containsAll(Collection<?> c);//содержит все элементы
+
+	boolean remove(Object o);//удалить объект
+	boolean removeAll(Collection<?> c);//удалить коллекцию объектов
+
+	boolean retainAll(Collection<?> c);удалить все кроме объектов коллекции Collection<?> c
+	void clear();//очистить коллекцию
+
+
+interface Iterable<T>
+	Iterator<T> iterator();
+	
+interface Iterator<E>
+	boolean hasNext();
+	E next();
+	void remove();

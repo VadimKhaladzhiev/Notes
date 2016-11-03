@@ -1,0 +1,44 @@
+JDBC
+
+Получаем соединение
+Connection con = DriverManager.getConnection(url, login, password);
+
+Отменяем автокоммит для транзакции
+con.setAutoCommit(false)
+Устанавливаем уровень изоляции
+con.setTransactionIsolation(Connection.ISOLATION_LEVEL)
+Оптимизация запроса для драйвера
+con.setReadOnly()
+con.commit()
+con.rollback()
+
+
+Создаем запрос
+Statement st = con.createStatement();
+
+Выполняем запрос Statement
+boolean res = st.execute(query) // возвращает true если результат является ResultSet
+ResultSet rs = st.executeQuery(query) // возвращает ResultSet
+int num = st.executeUpdate(query) // выводит количество модифицированных строк
+
+
+Создаем подготовленный (параметризованный) запрос 
+PreparedStatement pst = con.prepareStatement(query)
+pst.setXXX(...)
+pst.execute()
+pst.executeQuery()
+pst.executeUpdate()
+
+Создаем вызов процедуры
+CallableStatement cst = con.prepareCall(query)
+cst.RegisterOutParameter(...)
+cst.setXXX(...)
+boolean res = cst.execute()
+ResultSet rs = cst.executeQuery()
+int num = cst.executeUpdate()
+
+Try-with-resource
+try(Statement st = con.createStatement()){
+	...
+}
+catch(SqlException ex){ ...}

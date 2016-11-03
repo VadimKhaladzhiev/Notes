@@ -1,0 +1,25 @@
+class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAccess, Cloneable, java.io.Serializable
+class LinkedList<E> extends AbstractSequentialList<E> implements List<E>, Deque<E>, Cloneable, java.io.Serializable
+class CopyOnWriteArrayList<E> implements List<E>, RandomAccess, Cloneable, java.io.Serializable
+class Vector<E> extends AbstractList<E> implements List<E>, RandomAccess, Cloneable, java.io.Serializable
+class Stack<E> extends Vector<E>
+
+interface List<E> extends Collection<E>
+	void add(int index, E element);
+	boolean addAll(int index, Collection<? extends E> c);
+	E get(int index);
+	int indexOf(Object o);
+	int lastIndexOf(Object o);
+	ListIterator<E> listIterator();
+	ListIterator<E> listIterator(int index);
+	E remove(int index);
+	E set(int index, E element);
+	List<E> subList(int fromIndex, int toIndex);
+	
+interface ListIterator<E> extends Iterator<E>
+	boolean hasPrevious();
+	E previous();
+	int nextIndex();
+	int previousIndex();
+	void set(E e);
+	void add(E e);

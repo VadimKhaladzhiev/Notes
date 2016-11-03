@@ -1,0 +1,24 @@
+Serializable
+
+long serialVersionUID;
+
+
+ObjectInputStream
+	readObject
+ObjectOutputStream
+	writeObject
+	
+	
+Class implements java.io.Serializable{
+
+	readObject(ObjectInputStream is){
+		is.defaultReadObject();
+		...
+	}
+	
+	writeObject(ObjectOutputStream os){
+		os.defaultWriteObject();
+		...
+	}
+	
+}

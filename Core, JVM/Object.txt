@@ -1,0 +1,16 @@
+Object
+
+native int hashcode();
+boolean equals(Object o){return this==o;}
+
+native void notify();
+native void notifyAll();
+
+native void wait(long timeout)
+void wait(){wait(0);}
+void wait(long timeout, int nanos){...}
+
+void finalize(){}
+String toString(){...}
+native Object clone() throws CloneNotSupportedException;
+native Class<?> getClass();

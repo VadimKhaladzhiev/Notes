@@ -1,0 +1,55 @@
+class TreeMap<K,V> extends AbstractMap<K,V> implements NavigableMap<K,V>, Cloneable, java.io.Serializable
+class HashMap<K,V> extends AbstractMap<K,V> implements Map<K,V>, Cloneable, Serializable
+class LinkedHashMap<K,V> extends HashMap<K,V> implements Map<K,V>
+class Hashtable<K,V> extends Dictionary<K,V> implements Map<K,V>, Cloneable, java.io.Serializable
+class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V> implements ConcurrentNavigableMap<K,V>, Cloneable, Serializable
+
+interface ConcurrentNavigableMap<K,V> extends ConcurrentMap<K,V>, NavigableMap<K,V>
+
+interface NavigableMap<K,V> extends SortedMap<K,V>
+	Map.Entry<K,V> lowerEntry(K key);
+	K lowerKey(K key);
+	Map.Entry<K,V> floorEntry(K key);
+	K floorKey(K key);
+	Map.Entry<K,V> ceilingEntry(K key);
+	K ceilingKey(K key);
+	Map.Entry<K,V> higherEntry(K key);
+	K higherKey(K key);
+	Map.Entry<K,V> firstEntry();
+	Map.Entry<K,V> lastEntry();
+	Map.Entry<K,V> pollFirstEntry();
+	Map.Entry<K,V> pollLastEntry();
+	NavigableMap<K,V> descendingMap();
+	NavigableSet<K> navigableKeySet();
+	NavigableSet<K> descendingKeySet();
+	NavigableMap<K,V> subMap(K fromKey, boolean fromInclusive, K toKey,   boolean toInclusive);
+	NavigableMap<K,V> headMap(K toKey, boolean inclusive);
+	NavigableMap<K,V> tailMap(K fromKey, boolean inclusive);
+
+interface SortedMap<K,V> extends Map<K,V>
+	Comparator<? super K> comparator();
+	SortedMap<K,V> subMap(K fromKey, K toKey);
+	SortedMap<K,V> headMap(K toKey);
+	SortedMap<K,V> tailMap(K fromKey);
+	K firstKey();
+	K lastKey();
+
+interface Map<K,V>
+	int size();
+	boolean isEmpty();
+
+	V put(K key, V value);
+	void putAll(Map<? extends K, ? extends V> m);
+	
+	boolean containsKey(Object key);
+	boolean containsValue(Object value);
+
+	V get(Object key);
+	Set<Map.Entry<K, V>> entrySet();
+	Set<K> keySet();
+	Collection<V> values();
+	
+	V remove(Object key);
+	
+	void clear();
+	

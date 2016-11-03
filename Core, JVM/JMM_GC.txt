@@ -1,0 +1,10 @@
+JMM и Garbage collector
+
+PermGen (Permanent Generation)
+	Хранит метаданные о классах и пул строк
+Heap
+	New generation
+		Eden (Если много мусора объекты переезжают в Survivor, если мало в oldGen)
+		Survivor1
+		Survivor2
+	Old generation

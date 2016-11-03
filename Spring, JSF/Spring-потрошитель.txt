@@ -1,0 +1,50 @@
+Когда инициализируем
+ new ClassPathXmlApplicationContext("context.xml")
+
+запускается XmlBeanDefinitionReader - сканирует xml и переводит их в 
+BeanDefinitions (Map Id->Декларация (класс, init-method, properties) )
+
+BeanFactory проходит по BeanDefinitions, создает объекты и складывает их в контейнер
+Все синглтоны складываются в контейнер
+А прототипы создаются когда они нужны
+
+BeanPostProcessor - настраивает бины до того как они пападут в IoC Container
+Создаем класс и наследуем его от BeanPostProcessor, реализуем два метода
+Object postProcessBeforeInitialization(Object bean, String beanName)
+	между ними
+		init-method
+		afterPropertiesSet (из интерфейса InitializerBean для Spring 2)
+		@PostConstruct
+Object postProcessAfterInitialization(Object bean, String beanName)
+
+Добавляем этот класс в context <bean class="...
+<annotation-config
+<component-scan
+
+BeanFactory сначала инициализирует BeanPostProcessor кладет их отдельно,
+затем с их помощью настраивает все остальные бины
+
+Все обычные бины проходят через все BeanPostProcessor два раза
+
+ApplicationListener
+	ContextStartedEvent
+	ContextStoppedEvent
+	ContextRefreshedEvent
+	ContextClosedEvent
+	
+Чтобы обрабатывать методы обращающиеся к инициализируемым бинам 
+после postProcessAfterInitialization со всеми proxy, создаем  
+класс implements ApplicationListenter<ContextRefreshedEvent>
+onApplicationEvent(ContextRefreshedEvent event)	{
+	ApplicationContext context = event.getApplicationContext();
+	String[] names = context.getBeanDefinitionNames();
+	for(String name : names){
+		
+	}
+}
+
+BeanFactoryPostProcessor - настраивает BeanDefinitions до того как создаются бины
+postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory)
+Например заменить класс на новый
+beanDefinition.setBeanClassName(...)
+

@@ -1,0 +1,15 @@
+JSF
+
+	JSF Lifycycle
+		Restore view
+		Apply requests
+		Process validation
+		Update model values
+		Invoke application
+		Render response
+		
+	Immediate true
+		Input component
+			Apply request phase -> ValueChangeEvent handler -> Render response
+		Command component
+			Action and Render response phase directly (Cancel button is an example)

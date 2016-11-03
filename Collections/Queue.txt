@@ -1,0 +1,49 @@
+class ArrayDeque<E> extends AbstractCollection<E> implements Deque<E>, Cloneable, Serializable
+class LinkedList<E> extends AbstractSequentialList<E> implements List<E>, Deque<E>, Cloneable, java.io.Serializable
+
+interface Deque<E> extends Queue<E>
+    
+	boolean add(E e);//аналог addLast
+	boolean offer(E e);//аналог offerLast
+	E remove();//аналог removeFirst
+	E poll();//аналог pollFirst
+	E element();//аналог getFirst
+	E peek();//аналог peekFirst
+	
+	void addFirst(E e);
+	void addLast(E e);
+	
+	boolean offerFirst(E e);
+	boolean offerLast(E e);
+	
+	E removeFirst();
+	E removeLast();
+	
+	E pollFirst();
+	E pollLast();
+	
+	E getFirst();
+	E getLast();
+	
+	E peekFirst();
+	E peekLast();
+	
+	boolean removeFirstOccurrence(Object o);//найти и удалить первый найденный объект
+	boolean removeLastOccurrence(Object o);//найти и удалить последний найденный объект
+	
+	void push(E e);//стековый метод, аналог addFirst
+	E pop();//стековый метод, аналог addLast
+	
+	Iterator<E> descendingIterator();
+
+class PriorityQueue<E> extends AbstractQueue<E> implements java.io.Serializable
+abstract class AbstractQueue<E> extends AbstractCollection<E> implements Queue<E>
+
+interface Queue<E> extends Collection<E>
+	boolean offer(E e);//добавляет элемент, не выкидывает исключение если емкость очереди ограничина
+	
+	E remove();//выбирает и удаляет элемент из головы, выкидывает NoSuchElementException если очередь пуста
+	E poll();//выбирает и удаляет элемент из головы, но НЕ выкидывает NoSuchElementException если очередь пуста, а отдает null
+	
+	E element();//выбирает элемент из головы, выкидывает NoSuchElementException если очередь пуста
+	E peek();//выбирает элемент из головы, но НЕ выкидывает NoSuchElementException если очередь пуста, а отдает null

@@ -1,0 +1,29 @@
+Joins
+
+inner join
+		 T_NAME  T_NICK      
+		  res2    user1          
+		  res1    user3    
+		  res5    user3
+
+outer join
+	left
+		 T_NAME  T_NICK    
+		  res1    user3     
+		  res2    user1 
+		  res3    (null)    
+		  res5    user3 	
+	right
+		 T_NAME  T_NICK    
+		  res2    user1     
+		  res1    user3     
+		  res5    user3     
+		  (null)  user4 	
+	full
+		 T_NAME  T_NICK    
+		  res1      user3     
+		  res2      user1     
+		  res3      (null)    
+		  res5      user3     
+		 (null)     user4 	
+cross join

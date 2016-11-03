@@ -1,0 +1,11 @@
+ClassLoading
+
+Bootstrap 
+	Грузит rt.jar 
+External
+	Из папки /ext
+System (AppLoader)
+	classpath
+
+Когда обращаемся к объекту, опрашивается SystemLoader, если нет его родитель (External) и т.д.
+Если класса нет идет попытка загрузки класса Bootstrap, External, System

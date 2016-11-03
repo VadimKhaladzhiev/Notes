@@ -1,0 +1,85 @@
+Concurrency
+
+	Collections
+		CopyOnWriteArrayList - при вставке делается рабочая копия, куда идет запись, затем основной массив заменяется на эту копию
+		CopyOnWriteArraySet - тоже для множеств (сетов)
+		ConcurrentHashMap
+			делит бакеты на секции, запись в которые синхронизирована
+			итераторы дают данные по определенн
+		ConcurrentSkipListMap
+			аналог TreeMap (отсортированная карта)
+		ConcurrentSkipListSet (отсортированное множество)
+	Queues
+		Non-blocking queues (Данные не портятся, при совместном использовании)
+			Потокобезопасные и неблокирующие имплементации Queue на связанных нодах
+			ConcurrentLinkedQueue
+			ConcurrentLinkedDeque
+		Blocking queues (Возможна блокировка потоков)
+			*BlockingQueue
+				ArrayBlockingQueue 
+				DelayQueue - получение элементов по задержке
+				LinkedBlockingQueue - два лока, быстрее ArrayBlockingQueue, но потребляет больше памяти
+				PriorityBlockingQueue - сортировка по приоритету
+				SynchronousQueue - блокирует Producer поток на запись, пока Consumer не вытащит элемент
+			*BlockingDeque - доп методы для двунаправленной очереди
+				LinkedBlockingDeque - двунаправленная блокирующая очередь, как двунаправленный список
+			*TransferQueue
+				LinkedTransferQueue - другая реализация SynchronousQueue
+	Executors
+		ExecutorService extends Executor (execute(Runnable))
+			ThreadPoolExecutor implements ExecutorService
+				service = new ThreadPoolExecutor(...);
+				service.execute(Runnable)
+				Future<T> future = service.submit(Runnable/Callable task);
+				List<Future> list = service.invokeAll(Collection<Callable> tasks); - ждем все задачи
+				List<Future> list = service.invokeAny(Collection<Callable> tasks); - ждем хотя бы одну задачу
+			Future
+				V get() - вешает поток и ждет результат
+				V get(long timeout, TimeUnit unit) - вешает поток и ждет результат не более timeout
+				boolean cancel() - отменить
+				boolean isDone() - вызывать до попытки отмены
+			
+			ExecutorService service = Executors.newSingleThreadExecutor()	- создается единственный поток
+			ExecutorService service = Executors.newFixedThreadPool(int)		- ограниченное количество потоков
+			ExecutorService service = Executors.newCashedThreadPool() 		- пустые потоки живут не более минуты
+
+			SheduledExecutorService sheduledService = Executors.newSheduledThreadPool(int) - для выполнения задач по расписанию
+			
+				SheduledExecutorService
+					sheduledService.shedule(Runnable/Callable task, delay);
+
+		ForkJoin
+			Ветвление рекурсивных задач (fork - запускает задачу в новом потоке, join - вытаскивает результат)
+			abstract RecursiveAction, RecursiveTask (compute)
+			 
+	Synchronizers
+		Semaphore 
+			Новая задача запускается, если есть счетчик меньше предела
+		Latch	
+			CountDownLatсh - срабатывает (запускаются все накопленные задачи), когда счетчик уменьшается до нуля
+		Barrier 
+			CyclicBarrier - срабатывает (запускаются все накопленные задачи), когда счетчик увеличивается до предела
+		Exchanger
+			Срабатывает когда оба потока вызывают exchange
+		Phaser 
+			Лучшее от CyclicBarrier и CountDownLatch
+			Улучшенный Barrier. Можно менять количество потоков.
+		SynchronousQueue
+			Передача объекта из одного потока другому
+	Locks
+		Lock - заменяет synchronized
+			lock()
+			unlock()
+			tryLock(long timeout, TimeUnit unit)
+			Condition newCondition() - заменяет wait на await, notify на signal, notifyAll на signalAll
+		ReentrantLock implements Lock
+		ReentrantReadWriteLock - пара блокировок, когда много много потоков читают либо один пишет
+			ReadLock getReadLock(), ReadLock implements Lock
+			WriteLock getWriteLock(), WriteLock implements Lock
+	Atomics (CAS CompareAndSwap based)
+		Atomic
+			AtomicInteger
+			AtomicLong
+			AtomicBoolean
+		AtomicReference
+	

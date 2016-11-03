@@ -1,0 +1,22 @@
+Semaphore 
+	Количество потоков не известно заранее
+	Новая задача запускается, если есть счетчик меньше предела
+	Semaphore semaphore = new Semaphore(0);	
+	semaphore.acquire(threadCount);//устанавливает значение счетчика равным threadCount и ждет пока оно не уменьшится до 0
+	new Thread...{
+		semaphore.release();//уменьшает значение счетчика
+Latch (CountDownLatсh)
+	Количество потоков известно заранее
+	срабатывает (запускаются все накопленные задачи), когда счетчик уменьшается до нуля
+	Несколько держат одного либо один запускает всех (new CountDownLatch(1);)
+	CountDownLatch countDownLatch = new CountDownLatch(MAX_THREADS);
+	countDownLatch.await();//основной поток вешается
+	new Thread...{ 
+		countDownLatch.countDown();//уменьшаем счетчик
+Barrier (CyclicBarrier)
+	Количество потоков известно заранее
+	срабатывает (запускаются все накопленные задачи), когда счетчик увеличивается до предела
+	Все потоки ждут остальные потоки прежде чем перейти ко второй части, затем к третьей
+	CyclicBarrier barrier = new CyclicBarrier(4, new Runnable()
+	new Thread...{ 
+		barrier.await();

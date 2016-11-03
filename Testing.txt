@@ -1,0 +1,20 @@
+Testing
+
+Static (до и во время компиляции) and dynamic testing (время выполнения)
+
+Тестирование белого ящика
+
+	UNIT testing
+		Тестирование классов
+		Interaction testing
+			Mockito, DBUnit
+	Integration 
+		
+	UI testing
+		Selenium, Selenide
+
+Тестирование черного ящика
+
+	Acceptance testing (ATDD) - приемочное тестирование
+	Functional testing
+	

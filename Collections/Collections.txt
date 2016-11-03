@@ -1,0 +1,48 @@
+Collections
+
+*Iterator
+	hasNext()
+	next()
+	remove()
+
+*Collection extends *Iterable
+	List
+	Set
+	Queue
+		Deque
+*Map
+
+*List
+	ArrayList
+		Быстрый перебор
+	LinkedList implements Deque
+		Быстрая вставка в середину
+	Vector
+		Все методы синхронизированы. Лучше заменить на CopyOnWriteArrayList
+		Stack
+			LIFO Методы push и pop. Лучше заменить на ArrayDeque
+*Set
+	HashSet
+		LinkedHashSet
+	TreeSet implements *NavigableSet (extends *SortedSet)
+		Основано на HasMap(с new Object() как value)
+		Сортировка на основе сбалансированного дерева (Красно-черное дерево).
+		По умолчанию natural ordering (z2 будет до z11)
+
+*Queue ((add, offer),(poll, peek, element), remove)
+	PriorityQueue - сортировка по приоритету
+	*Deque (Stack methods: push - pop)
+		ArrayDeque
+		LinkedList
+		
+*Map
+	HashMap
+		LinkedHashMap
+			Запоминает порядок по которому элементы были добавлены
+	TreeMap implements *NavigableMap (extends *SortedMap)
+		Сортировка на основе сбалансированного дерева (Красно-черное дерево).
+	Hashtable
+		Все методы синхронизированы. Лучше заменить на ConcurrentHashMap
+	WeakHashMap
+		Элементы удаляются если на них нет ссылок
+
