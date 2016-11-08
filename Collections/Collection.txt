@@ -1,9 +1,9 @@
 interface Collection<E> extends Iterable<E>
 	int size();//размер
-	boolean isEmpty();//незаполненна€
+	boolean isEmpty();//незаполненна
 
 	Object[] toArray();//в виде массива Object
-	<T> T[] toArray(T[] a);//в виде массива экземпл€ров класса
+	<T> T[] toArray(T[] a);//в виде массива экземпляров класса
 
 	boolean add(E e);//добавить элемент
 	boolean addAll(Collection<? extends E> c);//добавить элементы коллекции
