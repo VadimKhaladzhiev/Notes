@@ -1,0 +1,48 @@
+abstract class InputStream implements Closeable
+	abstract int read() throws IOException
+	int read(byte b[]) throws IOException
+	int read(byte b[], int off, int len) throws IOException
+	long skip(long n) throws IOException
+	int available() throws IOException
+	void close() throws IOException
+	synchronized void mark(int readlimit)
+	synchronized void reset() throws IOException
+	boolean markSupported()
+	
+abstract class OutputStream implements Closeable, Flushable
+	abstract void write(int b) throws IOException
+	void write(byte b[]) throws IOException
+	void write(byte b[], int off, int len) throws IOException
+	void flush() throws IOException
+	void close() throws IOException
+
+InputStream	
+	AudioInputStream, ByteArrayInputStream, FileInputStream, PipedInputStream, SequenceInputStream, StringBufferInputStream
+	FilterInputStream
+		Buffered, Checked, Cipher, Digest, LineNumber, ProgressMonitor, PushBack (для использования unread)
+		Inflater
+			GZIP
+			Zip
+				Jar
+		DataInputStream extends FilterInputStream implements DataInput
+	ObjectInputStream extends InputStream implements ObjectInput, ObjectStreamConstants
+		interface ObjectInput extends DataInput, AutoCloseable	
+			Object readObject() throws ClassNotFoundException, IOException
+			read(), skip(), available(), close() - такие же как в InputStream
+
+
+OutputStream		
+	ByteArrayOutputStream, FileOutputStream, PipedOutputStream
+	FilterOutputStream
+		Buffered, CheckedOutputStream, CipherOutputStream, DigestOutputStream, PrintStreamOutputStream 
+		Deflater
+			GZIP
+			Zip
+				Jar
+		DataOutputStream extends FilterOutputStream implements DataOutput	
+	ObjectOutputStream extends OutputStream implements ObjectOutput, ObjectStreamConstants
+		interface ObjectOutput extends DataOutput, AutoCloseable	
+			void writeObject(Object obj)
+			write(), flush(), close() - такие же как в OutputStream
+
+RandomAccessFile implements DataOutput, DataInput, Closeable

@@ -1,0 +1,44 @@
+interface Readable	
+	int read(java.nio.CharBuffer cb) throws IOException
+abstract class Reader implements Readable, Closeable
+	int read(java.nio.CharBuffer target) throws IOException
+	int read() throws IOException
+	int read(char cbuf[]) throws IOException
+	abstract public int read(char cbuf[], int off, int len) throws IOException
+	long skip(long n) throws IOException
+	boolean ready() throws IOException
+	boolean markSupported()
+	void mark(int readAheadLimit) throws IOException
+	void reset() throws IOException
+	public void close() throws IOException
+	
+interface Appendable
+	Appendable append(CharSequence csq) throws IOException
+	Appendable append(CharSequence csq, int start, int end) throws IOException
+	Appendable append(char c) throws IOException
+abstract class Writer implements Appendable, Closeable, Flushable
+	void write(int c) throws IOException
+	void write(char cbuf[]) throws IOException
+	abstract public void write(char cbuf[], int off, int len) throws IOException
+	void write(String str) throws IOException
+	void write(String str, int off, int len) throws IOException
+	Writer append(CharSequence csq) throws IOException
+	Writer append(CharSequence csq, int start, int end) throws IOException
+	Writer append(char c) throws IOException
+	abstract public void flush() throws IOException
+	abstract public void close() throws IOException
+
+Reader
+	CharArrayReader, PipedReader, StringReader
+	BufferedReader
+		LineNumberReader
+	FilterReader
+		PushBackReader
+	InputStreamReader
+		FileReader
+		
+Writer
+	BufferedWriter, CharArrayWriter, FilterWriter, PipedWriter, PrintWriter, StringWriter
+	OutputStreamWriter
+		FileWriter
+	
