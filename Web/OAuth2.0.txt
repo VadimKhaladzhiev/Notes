@@ -1,0 +1,33 @@
+Авторизация выражается в форме гранта авторизации (AUTHORIZATION GRANT), который клиент использует для 
+запроса ACCESS TOKEN.
+
+Типы грантов:
+
+	Authorization Code grant
+		1.1 Клиент перебрасывает User-Agent на /authorize?response_type=code&client_id=..&redirect_uri=..[&scope=..&state=..]
+		1.2 После авторизации Auth server перебрасывает User-Agent по /redirect_uri?code=..[&state=..] с кодом code, либо с ошибкой
+			/redirect_uri?error=..[&error_description=..&error_uri=..&state=..]
+		2.  Клент запрашивает access token по коду /token?grant_type=authorization_code&code=..&redirect_uri=..&client_id=..
+			Клиент должен авторизоваться (Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW)
+			В ответе {"access_token":"..", "token_type":"bearer", "expires_in":secs, "refresh_token"="..", "example_parameter":"example_value"}
+		3.	Клиент запрашивает ресурс передавая access_token /resource?access_token=..
+
+	Implicit grant
+		1.1 Клиент перебрасывает User-Agent на /authorize?response_type=token&client_id=..&redirect_uri=..[&scope=..&state=..]
+		1.2 После авторизации Auth server перебрасывает User-Agent по 
+			/redirect_uri?access_token=..&token_type=..&expires_in=..[&scope=..&state=..], либо с ошибкой
+			/redirect_uri?error=..[&error_description=..&error_uri=..&state=..]
+		2.	Клиент запрашивает ресурс передавая access_token /resource?access_token=..
+
+	Resource owner password credentials grant
+		1. 	Клиент запрашивает access token /token?grant_type=password&username=..&password=..
+			Клиент должен авторизоваться (Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW)
+			В ответе {"access_token":"..", "token_type":"bearer", "expires_in":secs, "refresh_token"="..", "example_parameter":"example_value"}
+		2.	Клиент запрашивает ресурс передавая access_token /resource?access_token=..
+		
+	Client credentials grant
+		1. 	Клиент запрашивает access token /token?grant_type=client_credentials
+			Клиент должен авторизоваться (Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW)
+			В ответе {"access_token":"..", "token_type":"bearer", "expires_in":secs, "example_parameter":"example_value"}
+			Refresh token не должен быть передан
+		2.	Клиент запрашивает ресурс передавая access_token /resource?access_token=..
