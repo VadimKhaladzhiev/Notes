@@ -9,7 +9,7 @@ GrantedAuthority - роли
 UserDetails
 	имя, пароль, флаги(isAccountNonExpired, isAccountNonLocked, isCredentialsNonExpired, isEnabled), роли
 UserDetailsService
-	создание UserDetails реализуя
+	поиск записи пользователя (UserDetails) по логину реализуя
 	UserDetails loadUserByUsername(String username) throws UsernameNotFoundException; 
 	
 	
