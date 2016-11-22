@@ -1,17 +1,32 @@
 NoSQL
 
-	Хранилище ключ-значение
-		Redis, MemcacheDB и т.д. (обычно хранят данные в памяти)
-		для хранения сессий, кеша, счётчиков посещений или просмотров и т.д.
 	Распределённое хранилище (Column-oriented)
 		Cassandra, HBase и т.д (предназначены для очень больших объёмов данных).
 		Каждая запись состоит из одного или нескольких столбцов содержащих данные, а каждый столбец разных записей может хранить разные типы данных.
 	Документо-ориентированные СУБД
 		MongoDB, Couchbase и т.д. (предназначены для хранения иерархических структур данных - документов)
 		можно описать сколь угодно сложную структуру данных как документ и сохранить в такой БД
+	Хранилище ключ-значение
+		Redis, MemcacheDB и т.д. (обычно хранят данные в памяти)
+		для хранения сессий, кеша, счётчиков посещений или просмотров и т.д.
 	БД на основе графов
 		OrientDB, Neo4J и т.д.
 		где нужно иметь четко установленные связи
+	Multimodel Databases
+		ArangoDB, OrientDB, Datomic...
+	Object Databases
+		Versant, db4o, Objectivity...
+	Grid & Cloud Database Solutions	
+		Crate Data, Oracle Coherence, GigaSpaces, Hazelcast...
+	XML Databases
+		EMC Documentum xDB, eXist, Sedna, Berkeley DB XML...
+	Multidimensional Databases
+	Multivalue Databases
+	Event Sourcing
+	Time Series / Streaming Databases
+	other NoSQL related databases
+	Scientific and Specialized DBs
+	unresolved and uncategorized
 		
 ----------------------
 http://devacademy.ru/posts/nosql/
