@@ -110,6 +110,8 @@ Behavioral patterns
 		javax.faces.lifecycle.LifeCycle#execute() (controlled by FacesServlet, the behaviour is dependent on current phase (state) of JSF lifecycle)
 
 	Strategy (recognizeable by behavioral methods in an abstract/interface type which invokes a method in an implementation of a different abstract/interface type which has been passed-in as method argument into the strategy implementation)
+		отличие от State, что контекст хранит State в переменной и в State могут быть разные задачи, а Strategy передается 
+		в качестве аргумента методу
 		java.util.Comparator#compare(), executed by among others Collections#sort().
 		javax.servlet.http.HttpServlet, the service() and all doXXX() methods take HttpServletRequest and HttpServletResponse and the implementor has to process them (and not to get hold of them as instance variables!).
 		javax.servlet.Filter#doFilter()
