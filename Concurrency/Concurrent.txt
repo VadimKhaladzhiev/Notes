@@ -47,7 +47,9 @@ Concurrency
 			
 				SheduledExecutorService
 					sheduledService.shedule(Runnable/Callable task, delay);
-
+			
+			CompletionService service = new ExecutorCompletionService<>(Executors.newCachedThreadPool());		
+					
 		ForkJoin
 			Ветвление рекурсивных задач (fork - запускает задачу в новом потоке, join - вытаскивает результат)
 			abstract RecursiveAction, RecursiveTask (compute)

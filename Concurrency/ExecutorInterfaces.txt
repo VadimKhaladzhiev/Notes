@@ -1,0 +1,30 @@
+class ScheduledThreadPoolExecutor extends ThreadPoolExecutorimplements ScheduledExecutorService
+
+class ForkJoinPool extends AbstractExecutorService
+class ThreadPoolExecutor extends AbstractExecutorService
+
+abstract class AbstractExecutorService implements ExecutorService
+
+interface ScheduledExecutorService extends ExecutorService
+	ScheduledFuture<?> schedule(Runnable command, long delay, TimeUnit unit)
+	<V> ScheduledFuture<V> schedule(Callable<V> callable, long delay, TimeUnit unit)	
+	ScheduledFuture<?> scheduleAtFixedRate(Runnable command, long initialDelay, long period, TimeUnit unit)	//периодическая
+	ScheduledFuture<?> scheduleWithFixedDelay(Runnable command, long initialDelay, long delay, TimeUnit unit) //периодическая
+	
+interface ExecutorService extends Executor
+	void shutdown();
+	boolean isShutdown();
+	boolean isTerminated();
+	boolean awaitTermination(long timeout, TimeUnit unit) throws InterruptedException;
+	
+	<T> Future<T> submit(Callable<T> task);
+	<T> Future<T> submit(Runnable task, T result);
+	Future<?> submit(Runnable task);
+	<T> List<Future<T>> invokeAll(Collection<? extends Callable<T>> tasks) throws InterruptedException;
+	<T> List<Future<T>> invokeAll(Collection<? extends Callable<T>> tasks, long timeout, TimeUnit unit) throws InterruptedException;
+	<T> T invokeAny(Collection<? extends Callable<T>> tasks) throws InterruptedException, ExecutionException;
+	<T> T invokeAny(Collection<? extends Callable<T>> tasks, long timeout, TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException;
+
+	
+interface Executor
+	void execute(Runnable command)
