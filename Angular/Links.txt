@@ -1,0 +1,14 @@
+SpringBoot + Angular
+https://github.com/zouabimourad/angular2-spring/tree/master/front
+
+Spring + maven + angular
+http://stackoverflow.com/questions/35704973/how-to-configure-angular2-application-using-typescript-with-maven/35708519
+
+Dart news
+http://news.dartlang.org
+
+Dart angular components
+https://dart-lang.github.io/angular2_components_example/
+
+Angular2 TS 
+https://angular.io/docs/ts/latest/cookbook/component-communication.html
