@@ -1,17 +1,4 @@
-http://stackoverflow.com/questions/22513979/setting-up-cassandra-multi-node-cluster-on-a-single-ubuntu-server/25348301#25348301
 https://github.com/pcmanus/ccm
+http://www.datastax.com/dev/blog/ccm-2-0-and-windows
 
-It is very easy to run multiple Cassandra instances on the same Ubuntu machine as long as they have different IP addresses that all resolve to the local host. 
-The entire 127.0.0.0/8 address block is reserved for loopback purposes so any packet sent to addresses (127.0.0.1 through 127.255.255.254) will be looped back.
-
-	Use ping to check if the addresses resolve properly.
-	Place two (or more) Cassandra instances into different folders.
-
-Edit cassandra.yaml and replace
-
-	Various file locations to the locations unique to the given instance of Cassandra.
-	localhost to the IP address we give to that instance (like 127.0.0.2).
-	Use SimpleSeedProvider and put addresses of all other Cassandra instances to the seed list to make a cluster (like - seeds: "127.0.0.2","127.0.0.3"
-	Do not alter any port numbers, not helpful and not required.
-
-Edit cassandra-env.sh, find where the JMX_PORT property is set and give it a different value (different port) for every instance of Cassandra. Otherwise instances cannot run together because of the conflicts on this port.
+http://stackoverflow.com/questions/22513979/setting-up-cassandra-multi-node-cluster-on-a-single-ubuntu-server/25348301#25348301
