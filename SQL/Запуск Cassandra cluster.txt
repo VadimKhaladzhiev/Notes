@@ -2,3 +2,11 @@ https://github.com/pcmanus/ccm
 http://www.datastax.com/dev/blog/ccm-2-0-and-windows
 
 http://stackoverflow.com/questions/22513979/setting-up-cassandra-multi-node-cluster-on-a-single-ubuntu-server/25348301#25348301
+
+
+Архитектура Cassandra
+https://www.ibm.com/developerworks/ru/library/os-apache-cassandra/
+https://habrahabr.ru/post/155115/
+
+EGov на Cassandra
+https://habrahabr.ru/company/at_consulting/blog/267979/
