@@ -1,5 +1,15 @@
 REST (Representational state transfer)
 
+https://ru.wikipedia.org/wiki/REST
+
+Принципы
+	1. Модель клиент-сервер
+	2. Отсутствие состояния
+	3. Кэширование
+	4. Единообразие интерфейса
+	5. Слои
+	6. Код по требованию
+
 Ресурсы представлены как папки
 Представление поставляет JSON (JavaScript Object notation) либо XML
 Сообщения явно используют методы HTTP (GET, POST, PUT, DELETE)
