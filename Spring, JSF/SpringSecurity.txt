@@ -56,3 +56,6 @@ UserDetailsService
 -----------------------------
 https://habrahabr.ru/post/203318/	
 http://stackoverflow.com/questions/25383286/spring-security-custom-userdetailsservice-and-custom-user-class
+
+Пример OAuth2
+http://websystique.com/spring-security/secure-spring-rest-api-using-oauth2/
