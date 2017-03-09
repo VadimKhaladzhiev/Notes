@@ -20,3 +20,6 @@ Barrier (CyclicBarrier)
 	CyclicBarrier barrier = new CyclicBarrier(4, new Runnable()
 	new Thread...{ 
 		barrier.await();
+		
+Визуально о синхронизаторах		
+https://habrahabr.ru/post/277669/		

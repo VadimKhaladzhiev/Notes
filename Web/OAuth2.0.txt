@@ -31,3 +31,7 @@
 			В ответе {"access_token":"..", "token_type":"bearer", "expires_in":secs, "example_parameter":"example_value"}
 			Refresh token не должен быть передан
 		2.	Клиент запрашивает ресурс передавая access_token /resource?access_token=..
+		
+
+OAuth 2.0 простым и понятным языком		
+https://habrahabr.ru/company/mailru/blog/115163/		
