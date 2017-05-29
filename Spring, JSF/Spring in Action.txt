@@ -1,0 +1,56 @@
+Spring in Action 4th
+
+Spring employs four key strategies
+-----------------------------------
+	1. Lightweight and minimally invasive development with POJOs
+	2. Loose coupling through DI and interface orientation
+	3. Declarative programming through aspects and common conventions
+	4. Eliminating boilerplate code with aspects and templates	
+
+Реализации контейнеров
+-----------------------------------
+	Spring comes with several container implementations that can be categorized into two distinct types. 
+	1. Bean factories (defined by the org.springframework.beans.factory.BeanFactory interface) are the simplest
+	of containers, providing basic support for DI. 
+	
+	2. Application contexts (defined by the org.springframework.context.ApplicationContext interface) build on the notion
+	of a bean factory by providing application-framework services, such as the ability to
+	resolve textual messages from a properties file and the ability to publish application
+	events to interested event listeners.
+
+Application contexts
+-----------------------------------	
+	1. AnnotationConfigApplicationContext
+	2. AnnotationConfigWebApplicationContext
+	3. ClassPathXmlApplicationContext
+	4. FileSystemXmlApplicationContext
+	5. XmlWebApplicationContext
+	
+Lifecycle
+-----------------------------------	
+	1. Spring instantiates the bean.
+	2. Spring injects values and bean references into the bean’s properties.
+	3. If the bean implements BeanNameAware, Spring passes the bean’s ID to the set - BeanName() method.
+	4. If the bean implements BeanFactoryAware, Spring calls the setBeanFactory() method, passing in the bean factory itself.
+	5. If the bean implements ApplicationContextAware, Spring calls the set - ApplicationContext() method, passing in a reference 
+	to the enclosing application context.
+	6. If the bean implements the BeanPostProcessor interface, Spring calls its post-
+	ProcessBeforeInitialization() method.
+	7. If the bean implements the InitializingBean interface, Spring calls its after-
+	PropertiesSet() method. Similarly, if the bean was declared with an initmethod,
+	then the specified initialization method is called.
+	8. If the bean implements BeanPostProcessor, Spring calls its postProcess-
+	AfterInitialization() method.
+	9. At this point, the bean is ready to be used by the application and remains in the
+	application context until the application context is destroyed.
+	10. If the bean implements the DisposableBean interface, Spring calls its
+	destroy() method. Likewise, if the bean was declared with a destroy-method,
+	the specified method is called.
+
+What’s new in Spring
+-----------------------------------
+	3.1. Spring 3.1 had several useful new features and improvements, many of which were
+	ocused on simplifying and improving configuration.
+	3.2. Spring 3.2 focused on configuration improvements with a small set of other enhancements, including Spring MVC enhancements
+	4.0. Spring 4.0 includes support for WebSocket programming, Java 8, Groovy, asynchronous Rest-Template, support for many JEE specs has been added, 
+	including JMS 2.0, JTA 1.2, JPA 2.1, and Bean Validation 1.1.
